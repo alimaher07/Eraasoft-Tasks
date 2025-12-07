@@ -1,0 +1,128 @@
+
+*{
+  box-sizing: border-box;
+}
+
+/*         Header         */
+
+h1{
+  font-family: "Cairo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:"slnt" 0;
+  font-size: 48px;
+}
+
+h1 , .blue-line{
+  margin-left: 4%;
+}
+
+.blue-line{
+  display: flex;
+  margin-top: -23px;
+  width: 100px;
+  height: 6px;
+  background-color: #007BFF;
+  border-radius: 60px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+}
+
+/*               Product-List                 */
+
+section{
+  display: flex;
+  max-width: 1236px;
+  height: 400px;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 24px auto 24px auto;
+}
+
+.sections{
+  padding: 10px;
+  width: calc((100% - 36px) / 4);
+  aspect-ratio: 300 / 400;
+  border: 1px solid #32323232;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  font-family: "Glory", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: bold;
+}
+
+img{
+  width: 276px;
+  height: 184px;
+  border: 1px solid #32323232;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+h3{
+  color: #323232;
+}
+
+p{
+  color: #32323296;
+  font-size: 20px;
+}
+
+.green-span{
+  color: #28A745;
+  font-size: 22px;
+}
+
+.red-span{
+  color: #DC3545;
+  font-size: 18px;
+  text-decoration: line-through;
+}
+
+.buttons{
+  display: flex;
+  gap: 6px;
+}
+
+.cart-btn{
+  width: 220px;
+  height: 50px;
+  border: none;
+  background-color: #007BFF;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  gap: 2px;
+}
+
+.cart-btn svg{
+  margin-bottom: -2px;
+}
+
+.fav-btn{
+  width: 50px;
+  height: 50px;
+  background-color: #FFFFFF;
+  border: 2px solid #007BFF;
+}
+
+.cart-btn:hover{
+  color: #FFFFFF;
+  background-color: #1900ff;
+  transition: 0.7s;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
+}

@@ -1,0 +1,236 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+}
+
+@font-face {
+  font-family: "Barlow";
+  src: url("./Fonts/Barlow-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Barlow";
+  src: url("./Fonts/Barlow-Regular.ttf");
+  font-weight: 400;
+}
+
+body{
+  font-family: "Barlow";
+  font-weight: 600;
+  padding-inline: 12px;
+}
+
+section{
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.trip-section{
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50svh;
+  color: #FFFFFC;
+  gap: 18px;
+  
+  h2{
+    color: #25292C;
+  }
+
+  h3{
+    font-weight: 600;
+  }
+
+  .cities{
+    box-shadow: inset  0 100svh rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    padding: 16px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    gap: 12px;
+
+    h4{
+      color: #FFFFFC;
+    }
+
+    p{
+      font-family: "Barlow";
+      font-weight: 400;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.australia-img{
+  background-image: url(/assets/style/Photos/sea-image.jpg);
+  grid-area: aus;
+}
+
+.united_Kingdom-img{
+  background-image: url(/assets/style/Photos/restaurant.jpg);
+  grid-area: uk;
+}
+
+.pandemic-img{
+  background-image: url(/assets/style/Photos/mountain.jpg);
+  grid-area: pm;
+}
+
+.popular-hotels{
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+
+  h2{
+    color: #25292C;
+  }
+
+  .hotels-container{
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .hotel{
+      width: calc((100% - 40px) / 4);
+      height: 100%;
+
+      img{
+        width: 100%;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+      }
+
+      h4{
+        color: #181818;
+      }
+
+      p{
+        color: #25292C;
+      }
+    }
+  }
+}
+
+.activites{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  .head-of-section{
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #25292C;
+    padding-bottom: 40px;
+  
+    p{
+      font-size: 24px;
+      font-weight: 400;
+    }
+  
+    p:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .activites-imgs{
+    max-width: 100svh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 35svh 35svh;
+    grid-template-areas: 
+    "cruises b-tours c-tours c-tours"
+    "museum b-tours food hiking";
+    gap: 20px;
+
+    .imgs img{
+      width: 25.5svw;
+    }
+
+    img{
+      transition: transform 0.3s ease-in-out;
+      -webkit-transition: transform 0.3s ease-in-out;
+      -moz-transition: transform 0.3s ease-in-out;
+      -ms-transition: transform 0.3s ease-in-out;
+      -o-transition: transform 0.3s ease-in-out;
+    }
+
+    img:hover{
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+    }
+
+    .img-1{
+      grid-area: cruises;
+
+      img{
+        height: 100%;
+      }
+    }
+
+    .img-2{
+      grid-area: museum;
+
+      img{
+        height: 100%;
+      }
+    }
+
+    .img-3{
+      grid-area: b-tours;
+
+      img{
+        height: 100%;
+      }
+    }
+
+    .img-4{
+      grid-area: c-tours;
+
+      img{
+        width: 29svw;
+        height: 100%;
+      }
+    }
+    
+    
+
+    .img-5{
+      grid-area: food;
+      width: 100%;
+    }
+
+    .img-6{
+      grid-area: hiking;
+      img{
+        width: 13.5svw;
+        height: 100%;
+      }
+    }
+    
+  }
+}

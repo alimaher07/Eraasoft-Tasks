@@ -1,0 +1,87 @@
+*{
+  box-sizing: border-box;
+  color: #202020;
+}
+
+body{
+  background-color: #fafafa;
+}
+
+section{
+  padding: 0 13px;
+  margin: 15px;
+  border: 2px solid #e2e2e2;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+/*           Header             */
+
+h1{
+  font-size: 28px;
+  padding-left: 15px;
+}
+
+/*           Profile             */
+
+.profile{
+  padding: 13px;
+  width: 280px;
+}
+
+.profile h2{
+  margin: 5px;
+  font-size: 20px;
+}
+
+.my-role{
+  margin: 5px;
+  color: #8E2DE2;
+  font-size: 16px;
+}
+
+
+
+img{
+  height: 120px;
+  width: 120px;
+  border: 2px solid #8E2DE2;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+/*           Quote Box             */
+
+.quote{
+  width: 280px;
+  font-size: 16px;
+  background-color: #8E2DE224;
+  border: 2px solid #8E2DE2;
+}
+
+/*           Contact Me             */
+
+.contact-me{
+  padding: 3px;
+  width: 280px;
+}
+
+.contact-me h2{
+  color: #8E2DE2;
+  font-size: 18px;
+}
+
+.contact-me p{
+  font-size: 14px;
+  margin-top: -6px;
+}
+
+.contact-me p , .contact-me h2{
+  padding-left: 6px;
+}
