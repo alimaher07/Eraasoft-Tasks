@@ -26,9 +26,16 @@ let h = 0
 serveNext.addEventListener("click", () =>{
   const readyName = waitingServing.shift()
   waiting.innerHTML = ""
-  nowServing.innerHTML = ""
+  for(let n = 0 ; n < waitingServing.length ; n++){
+    console.log(waitingServing[n])
+    waiting.innerHTML += `
+  <div class="waiting-serving bg-primary bg-opacity-10 border-start border-primary border-4 rounded-2 p-1 ps-2 mt-3 w-100">
+  #${n + 1} ---${waitingServing[n]}
+  </div>`
+  }
   nowServing.innerHTML =`
   <div class="now-serving bg-success bg-opacity-10 border-start border-success border-4 rounded-2 p-1 ps-2 mt-3 w-100">
   <span class="fw-bold">Now Serving:</span> #${h+=1} ---${readyName}
   </div>`
+  
 })
