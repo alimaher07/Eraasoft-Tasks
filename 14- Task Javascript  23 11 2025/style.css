@@ -1,0 +1,54 @@
+
+*{
+  box-sizing: border-box;
+}
+
+/*         Header         */
+
+h1{
+  font-family: "Cairo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:"slnt" 0;
+  font-size: 48px;
+}
+
+
+
+.blue-line{
+  display: flex;
+  margin-top: -5px;
+  width: 100px;
+  height: 6px;
+  background-color: #007BFF;
+  border-radius: 60px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+}
+
+
+.red-span{
+  text-decoration: line-through;
+}
+
+.slug{
+  margin-block: 10px;
+}
+
+.products{
+  min-height: 60px;
+}
+
+.description{
+  min-height: 4.5rem;
+}
+
+@media screen and (max-width : 576px) {
+  .cart-btn{
+    margin-left: 8px;
+    width: 80svw !important;
+  }
+}
