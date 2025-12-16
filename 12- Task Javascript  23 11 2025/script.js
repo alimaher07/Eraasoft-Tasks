@@ -86,7 +86,7 @@ const mobileCards1 = document.querySelector(".first-container")
 let i = 0
 
 while(i < products.length && i < 4){
-  mobileCards1.innerHTML += `<div class="col fw-bold p-2 border border-secondary-subtle rounded-2">
+  mobileCards1.innerHTML += `<div class="col-md col-sm-12 fw-bold p-2 border border-secondary-subtle rounded-2">
     <img src="${products[i].image}" alt="" class="w-100 rounded-2" style="height: 190px">
     <div class="products-container">
       <h3 class="text-dark fs-4 pt-2 slug">${products[i].slug}</h3>
