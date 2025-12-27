@@ -1,0 +1,29 @@
+.input-task{
+  border: none;
+  outline: none;
+}
+
+.check{
+  width: 20px;
+  height: 20px;
+}
+
+.check:active{
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: #0d6efd !important;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.col button{
+  background-color: transparent;
+  border: none;
+}
+
