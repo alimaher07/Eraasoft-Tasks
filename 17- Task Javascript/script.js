@@ -81,7 +81,7 @@ const products = [
   }
 ];
 
-const productsCart = []
+const productsCart = JSON.parse(localStorage.getItem("cart")) || []
 
 const mobileCards1 = document.querySelector(".first-container")
 const searchInput = document.querySelector(".search-input")
@@ -97,7 +97,7 @@ const addToCart = (id) => {
   console.log(productsCart)
   displayCarts()
   cartIndicator.textContent = productsCart.length
-  localStorage.setItem("card" , JSON.stringify(productsCart))
+  localStorage.setItem("cart" , JSON.stringify(productsCart))
 }
 
 const removeFromCart = (id) => {
@@ -316,12 +316,12 @@ setInterval(() => {
   const secounds = countdownWithSecounds % 60
   countdownWithSecounds --
   if(countdownWithSecounds === 0){
-    countdownWithSecounds = 59
     countdownWithMinutes --
-    if(countdownWithMinutes === 0){
-      countdownWithMinutes = 59
-      countdownWithHours --
-    }
+    countdownWithSecounds = 59
+  }
+  if(countdownWithMinutes === 0){
+    countdownWithHours --
+    countdownWithMinutes = 59
   }
   timeSection.innerHTML = `
   <div class="hours  d-flex justify-content-center align-items-center" style="width: 10svw; height: 10svh;">

@@ -1,87 +1,14 @@
-const products = [
-  {
-    id: 1,
-    slug: "galaxy-s24-ultra",
-    title: "Samsung Galaxy S24 Ultra",
-    description: "6.8-inch AMOLED display, Snapdragon 8 Gen 3, 200MP camera.",
-    image: "/images/products/s24-ultra.jpg",
-    old_price: 1499,
-    price_after_sale: 1299,
-    currency: "USD"
-  },
-  {
-    id: 2,
-    slug: "iphone-15-pro-max",
-    title: "Apple iPhone 15 Pro Max",
-    description: "A17 Pro chip, titanium design, 48MP camera, long battery life.",
-    image: "/images/products/iphone-15-pro-max.jpg",
-    old_price: 1599,
-    price_after_sale: 1499,
-    currency: "USD"
-  },
-  {
-    id: 3,
-    slug: "macbook-air-m3",
-    title: "MacBook Air M3",
-    description: "13-inch Retina display, M3 chip, 8GB RAM, 256GB SSD.",
-    image: "/images/products/macbook-air-m3.jpg",
-    old_price: 1399,
-    price_after_sale: 1249,
-    currency: "USD"
-  },
-  {
-    id: 4,
-    slug: "lenovo-legion-7",
-    title: "Lenovo Legion 7",
-    description: "AMD Ryzen 9, RTX 4070, 16GB RAM, 1TB SSD, 16-inch QHD display.",
-    image: "/images/products/lenovo-legion-7.jpg",
-    old_price: 2199,
-    price_after_sale: 1999,
-    currency: "USD"
-  },
-  {
-    id: 5,
-    slug: "anker-powercore-20000",
-    title: "Anker PowerCore 20000mAh Power Bank",
-    description: "High-capacity portable charger with fast charging.",
-    image: "/images/products/anker-powercore-20000.jpg",
-    old_price: 69,
-    price_after_sale: 49,
-    currency: "USD"
-  },
-  {
-    id: 6,
-    slug: "sony-wh-1000xm5",
-    title: "Sony WH-1000XM5 Headphones",
-    description: "Industry-leading noise-canceling wireless headphones.",
-    image: "/images/products/sony-wh-1000xm5.jpg",
-    old_price: 399,
-    price_after_sale: 349,
-    currency: "USD"
-  },
-  {
-    id: 7,
-    slug: "logitech-mx-master-3s",
-    title: "Logitech MX Master 3S Mouse",
-    description: "Ergonomic wireless mouse with precision tracking and fast scrolling.",
-    image: "/images/products/logitech-mx-master-3s.jpg",
-    old_price: 119,
-    price_after_sale: 99,
-    currency: "USD"
-  },
-  {
-    id: 8,
-    slug: "apple-airpods-pro-2",
-    title: "Apple AirPods Pro (2nd Gen)",
-    description: "Active noise cancellation, personalized spatial audio, USB-C case.",
-    image: "/images/products/airpods-pro-2.jpg",
-    old_price: 299,
-    price_after_sale: 269,
-    currency: "USD"
-  }
-];
+let products = [];
 
-const productsCart = []
+fetch('https://dummyjson.com/products/search?q=phone&limit=8')
+.then(res => res.json())
+.then(data => {
+  products = data.products
+  displayCarts()
+  console.log(data.products)
+});
+
+const productsCart = JSON.parse(localStorage.getItem("cart")) || []
 
 const mobileCards1 = document.querySelector(".first-container")
 const searchInput = document.querySelector(".search-input")
@@ -90,12 +17,14 @@ const minRange = document.querySelector(".min-range")
 const maxRange = document.querySelector(".max-range")
 const rangeBtn = document.querySelector(".range-btn")
 const cartIndicator = document.querySelector(".cart-indicator")
+const timeSection = document.querySelector(".time-section")
 
 const addToCart = (id) => {
   productsCart.push(id)
   console.log(productsCart)
   displayCarts()
   cartIndicator.textContent = productsCart.length
+  localStorage.setItem("cart" , JSON.stringify(productsCart))
 }
 
 const removeFromCart = (id) => {
@@ -123,12 +52,12 @@ searchbtn.addEventListener("click", () => {
   mobileCards1.innerHTML = ""
   filteredProducts.forEach((product) => {
     mobileCards1.innerHTML = `<div class="col-sm-3 col-12 fw-bold p-2 border border-secondary-subtle rounded-2"">
-    <img src="${product.image}" alt="" class="w-100 rounded-2" style="height: 190px">
+    <img src="${product.images[0]}" alt="" class="w-100 rounded-2" style="height: 190px">
     <div class="products-container">
-      <h3 class="text-dark fs-4 pt-2 slug">${product.slug}</h3>
+      <h3 class="text-dark fs-4 pt-2 slug">${product.brand}</h3>
       <h3 class="text-dark fs-4 pt-2 products">${product.title}</h3>
       <p class="description text-secondary">${product.description}</p>
-      <p class="green-span text-success">${product.old_price}$ <small class="red-span text-danger" style>${product.price_after_sale}$</small></p>
+      <p class="green-span text-success">${Math.floor(product.price)}$ <small class="red-span text-danger" style>${Math.floor(product.price * (100 - product.discountPercentage) / 100)}$</small></p>
       <p class="text-secondary m-0">${product.currency}</p>
       <div class="buttons align-items-center justify-content-between">
       ${productsCart.includes(product.id)? 
@@ -174,6 +103,8 @@ searchbtn.addEventListener("click", () => {
   })
 })
 
+
+
 //                  Range                           
 
 rangeBtn.addEventListener("click", () => {
@@ -182,18 +113,18 @@ rangeBtn.addEventListener("click", () => {
 
   if (isNaN(minValue) || isNaN(maxValue)) return
   const filteredPrices = products.filter((price) => {
-    return ( price.price_after_sale >= minValue && price.price_after_sale <= maxValue)
+    return ( Math.floor(price.price * (100 - product.discountPercentage) / 100) >= minValue && Math.floor(price.price * (100 - product.discountPercentage) / 100) <= maxValue)
   })
   mobileCards1.innerHTML = ""
   filteredPrices.forEach((price) => {
     mobileCards1.innerHTML += 
     `<div class="col-md col-sm-12 fw-bold p-2 border border-secondary-subtle rounded-2">
-    <img src="${price.image}" alt="" class="w-100 rounded-2" style="height: 190px">
+    <img src="${price.images[0]}" alt="" class="w-100 rounded-2" style="height: 190px">
     <div class="products-container">
-      <h3 class="text-dark fs-4 pt-2 slug">${price.slug}</h3>
+      <h3 class="text-dark fs-4 pt-2 slug">${price.brand}</h3>
       <h3 class="text-dark fs-4 pt-2 products">${price.title}</h3>
       <p class="description text-secondary">${price.description}</p>
-      <p class="green-span text-success">${price.old_price}$ <small class="red-span text-danger" style>${price.price_after_sale}$</small></p>
+      <p class="green-span text-success">${Math.floor(price.price)}$ <small class="red-span text-danger" style>${Math.floor(price.price * (100 - product.discountPercentage) / 100)}$</small></p>
       <p class="text-secondary m-0">${price.currency}</p>
       <div class="buttons align-items-center justify-content-between">
       ${productsCart.includes(price.id)? 
@@ -248,13 +179,13 @@ const displayCarts = () => {
   mobileCards1.innerHTML = ""
   products.forEach((product) => {
     mobileCards1.innerHTML += `<div class="col-md col-sm-12 fw-bold p-2 border border-secondary-subtle rounded-2"  style="min-width: 20.5svw;">
-    <img src="${product.image}" alt="" class="w-100 rounded-2" style="height: 190px">
+    <img src="${product.images[0]}" alt="" class="w-100 rounded-2" style="height: 190px">
     <div class="products-container">
-      <h3 class="text-dark fs-4 pt-2 slug">${product.slug}</h3>
+      <h3 class="text-dark fs-4 pt-2 slug">${product.brand}</h3>
       <h3 class="text-dark fs-4 pt-2 products">${product.title}</h3>
       <p class="description text-secondary">${product.description}</p>
-      <p class="green-span text-success">${product.old_price}$ <small class="red-span text-danger" style>${product.price_after_sale}$</small></p>
-      <p class="text-secondary m-0">${product.currency}</p>
+      <p class="green-span text-success">${Math.floor(product.price)}$ <small class="red-span text-danger" style>${Math.floor(product.price * (100 - product.discountPercentage) / 100)}$</small></p>
+      <p class="text-secondary m-0">USD</p>
       <div class="buttons align-items-center justify-content-between">
       ${productsCart.includes(product.id)? 
       `<button onClick="removeFromCart(${product.id})" class="cart-btn bg-danger border border-less rounded-start p-2 px-4 text-white gap-1" style="border-top-left-radius: 0px !important;">
@@ -302,3 +233,31 @@ const displayCarts = () => {
 
 displayCarts()
 
+let countdownWithHours = 7 * 60 * 60
+let countdownWithMinutes = 23 * 60
+let countdownWithSecounds = 45
+
+setInterval(() => {
+  const hours = Math.floor(countdownWithHours / 3600)
+  const minutes = Math.floor(countdownWithMinutes / 60) % 60
+  const secounds = countdownWithSecounds % 60
+  countdownWithSecounds --
+  if(countdownWithSecounds === 0){
+    countdownWithMinutes --
+    countdownWithSecounds = 59
+  }
+  if(countdownWithMinutes === 0){
+    countdownWithHours --
+    countdownWithMinutes = 59
+  }
+  timeSection.innerHTML = `
+  <div class="hours  d-flex justify-content-center align-items-center" style="width: 10svw; height: 10svh;">
+    ${hours}
+  </div> :
+  <div class="hours  d-flex justify-content-center align-items-center" style="width: 10svw; height: 10svh;">
+    ${minutes}
+  </div> :
+  <div class="hours  d-flex justify-content-center align-items-center" style="width: 10svw; height: 10svh;">
+    ${secounds}
+  </div>`
+}, 1000)
