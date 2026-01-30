@@ -18,7 +18,7 @@ createBtn.addEventListener("click", () => {
 
 function renderTasks(filter = "all") {
   displayTasks.innerHTML = "";
-
+  const date = new Date()
   let filteredTasks = tasks;
   if (filter === "todo") {
     filteredTasks = tasks.filter(t => !t.complete);
@@ -33,7 +33,8 @@ function renderTasks(filter = "all") {
     div.innerHTML = `
       <div class="taskname-date" style="width: 50svw;">
         <p class="m-0">${task.name}</p>
-        <small class="m-0 text-secondary">2025</small>
+        <small class="m-0 text-secondary">${date.getDay()} / ${date.getMonth() + 1} / ${date.getFullYear()}</small>
+        <small class="m-0 text-secondary" style="display: block;">${date.getHours()} : ${date.getMinutes()} : ${date.getSeconds()}</small>
       </div>
       <input type="checkbox" class="check-btn bg-white border border-primary mt-2 mb-2" ${task.complete ? "checked" : ""}>
     `;

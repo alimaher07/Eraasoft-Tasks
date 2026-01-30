@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.product{
+  display: flex;
+}
+
 .product-img img{
   object-fit: cover;
   transition: transform 0.3s ease;
@@ -34,4 +38,45 @@
 .img-choices img{
   width: 8svw;
   margin-right: 10px;
+}
+
+.buttons{
+  display: flex;
+}
+
+@media screen and (max-width: 786px) {
+  .buttons{
+    display: block;
+    button{
+      width: 100% !important;
+      margin: 5px;
+    }
+  }
+}
+
+@media  screen and (max-width: 425px) {
+  .product{
+    display: block !important;
+    margin: 1rem 0 1rem 0 !important;
+    min-width: 90svw !important;
+  }
+  .product-img{
+    width: 500px !important;
+  }
+  .img-face{
+    width: 70svw !important;
+    margin-left: 34px;
+    margin-right: 34px;
+  }
+  .img-choices img{
+    width: 26svw !important;
+    margin-inline: 40px;
+  }
+  .buttons{
+    display: block !important;
+    button{
+      width: 85svw !important;
+      margin: 8px !important;
+    }
+  }
 }

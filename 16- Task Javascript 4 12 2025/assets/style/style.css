@@ -27,3 +27,24 @@
   border: none;
 }
 
+@media screen and (max-width: 1024px) {
+  .toDo-container{
+    width: 55svh !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .toDo-container{
+    width: 59svh !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .toDo-container{
+    width: 45svh !important;
+  }
+  .input-container{
+    display: flex;
+    gap: 31px;
+  }
+}

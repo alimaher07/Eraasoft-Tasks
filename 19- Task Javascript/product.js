@@ -11,7 +11,7 @@ fetch(`https://dummyjson.com/products/${id}`)
   console.log(data)
   product.innerHTML = `
   <div class="product-img w-50">
-    <img class="rounded" src="${data.images[0]}" alt="" style="width: 24svw;">
+    <img class="img-face rounded" src="${data.images[0]}" alt="" style="width: 24svw;">
     
       <div class="img-choices d-flex mt-3 gap-3">
       ${data.images.map((image) => `<img class="rounded" src="${image}" alt="">`).join("")}
@@ -69,7 +69,7 @@ fetch(`https://dummyjson.com/products/${id}`)
           </div>
         </div>
       </div>
-      <div class="buttons d-flex gap-4 mt-5 mb-5">
+      <div class="buttons gap-4 mt-5 mb-5">
           <button class="cart-btn btn btn-primary border border-less rounded p-2 px-5 text-white w-50 gap-1">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="cart-icon">
             <path d="M8 12L8 8C8 5.79086 9.79086 4 12 4C14.2091 4 16 5.79086 16 8L16 12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
