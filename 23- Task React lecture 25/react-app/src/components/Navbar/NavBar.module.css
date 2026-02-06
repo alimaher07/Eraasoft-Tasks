@@ -1,0 +1,65 @@
+.header{
+  position: absolute;
+  width: 100svw;
+  background-color: transparent;
+  color: #FFFFFF;
+  background-color: #FFFFFF33;
+  padding-block: 14px;
+  padding-inline: 10svw;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  .headerLinks{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    .img{
+      width: 25px;
+      height: 32px;
+    }
+  }
+  .navLinks{
+    .navLink{
+      flex-direction: row;
+      text-decoration: none;
+      color: #FFFFFF;
+      margin: 10px;
+      outline: none;
+    }
+  }
+  .linkBtns{
+    display: flex;
+    gap: 5px;
+    .purpleBtn{
+      background-color: #D9176C;
+      color: #FFFFFF;
+      border: none;
+      cursor: pointer;
+    }
+    .whiteBtn{
+      background-color: #FFFFFF;
+      color: #D9176C;
+      border: 1px #D9176C solid;
+      cursor: pointer;
+    }
+
+    .purpleBtn , .whiteBtn{
+      padding: 10px 14px;
+      outline: none;
+      border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+}
+  }
+}
