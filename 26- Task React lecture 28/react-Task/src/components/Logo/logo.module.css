@@ -1,0 +1,34 @@
+.navContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navigator{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.navLogo{
+  width: 40px;
+  height: 40px;
+}
+
+.navTitle{
+  background: linear-gradient(135deg, #3853c9 10%, #7420c9 90%);
+  background-clip: text;
+  color: transparent;
+  font-size: 30px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.navDescription{
+  color: rgb(170, 170, 170);
+}
