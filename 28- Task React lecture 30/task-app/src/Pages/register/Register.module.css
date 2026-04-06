@@ -1,0 +1,7 @@
+.heroSection{
+  height: 40svh;
+  background-image: url(../../assets/Books-Library.png);
+  box-shadow: inset  0 100svh rgba(0, 0, 0, 0.8);
+  width: 100%;
+  background-size: cover;
+}

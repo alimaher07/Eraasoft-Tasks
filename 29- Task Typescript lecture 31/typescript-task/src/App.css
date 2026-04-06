@@ -1,0 +1,60 @@
+.todo-container{
+    margin-top: 10svh;    
+    background-color: #FFFFFF;
+    padding: 20px;
+    width: 30svw;
+    margin-inline: auto;
+}
+.input-container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    input{
+        padding: 10px;
+        width: 30svw;
+        outline: none;
+    }
+    button{
+        padding: 10px 12px;
+    }
+}
+
+.task-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    border: 2px #232323 solid;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.task-name-container{
+    display: flex;
+    padding-block: 10px;
+    span{
+        font-size: 20px;
+    }
+}
+
+.task-name{
+    color: #232323;
+    font-size: 25px;
+    margin: 0; 
+}
+
+.task-btns{
+    display: flex;
+    gap: 10px;
+}
+
+.task-btn{
+    padding: 10px;
+}
+
+.check-img{
+    width: 20px;
+    padding-top: 10px;
+}

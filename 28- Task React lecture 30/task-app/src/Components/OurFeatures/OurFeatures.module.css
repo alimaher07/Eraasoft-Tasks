@@ -1,0 +1,22 @@
+.aboutSection{
+  background-color: #F5F5F5;
+  padding: 60px;
+  .aboutCards{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+    .aboutCard{
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+      justify-content: space-between;
+      gap: 5px;
+      h3{
+        color: #222222;
+      }
+      p{
+        color: #22222280;
+      }
+    }
+  }
+}
